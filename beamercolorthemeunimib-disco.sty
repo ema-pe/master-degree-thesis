@@ -1,0 +1,50 @@
+% Custom beamer template, based on TU Delft beamer template.
+% Author: Emanuele Petriglia, based on the work done by  Erwin Walraven and Maarten Abbink.
+
+\mode<presentation>
+
+% outer theme colors
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=customAlertColor}
+\setbeamercolor{example text}{fg=unimib-discoGreen}
+
+\setbeamercolor*{structure}{fg=unimib-discoGreen}
+
+\setbeamercolor*{decoration}{fg=white,bg=unimib-discoGreen}
+
+\setbeamercolor*{palette primary}{use=decoration,fg=decoration.fg,bg=decoration.bg}
+\setbeamercolor*{palette secondary}{parent=palette primary}
+\setbeamercolor*{palette tertiary}{parent=palette secondary}
+\setbeamercolor*{palette quaternary}{use=palette primary,bg=palette primary.fg}
+
+\setbeamercolor{separation line}{bg=black}
+\setbeamercolor{fine separation line}{parent=separation line}
+
+\setbeamercolor{upper separation line foot}{parent=fine separation line}
+\setbeamercolor{middle separation line foot}{parent=separation line,bg=white}
+\setbeamercolor{lower separation line foot}{parent=separation line}
+
+\setbeamercolor{titlelike}{parent=structure}
+
+%inner theme colors
+\setbeamercolor{title block body}{fg=white,bg=black}
+\setbeamercolor{title}{parent=title block body}
+\setbeamercolor{subtitle}{parent=title}
+\setbeamercolor{institute}{parent=structure}
+\setbeamercolor{author}{parent=title block body}
+\setbeamercolor{date}{parent=author}
+
+\setbeamercolor{section in toc}{parent=normal text}
+
+\setbeamercolor{block title}{parent=normal text,bg=customBlockColor}
+\setbeamercolor{block title alerted}{parent=block title,bg=unimib-discoYellow}
+\setbeamercolor{block title example}{parent=block title,bg=unimib-discoOrange}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+\setbeamercolor{item projected}{use=item,fg=white,bg=item.fg}
+
+\mode
+<all>

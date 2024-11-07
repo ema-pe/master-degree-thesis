@@ -1,0 +1,103 @@
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX spellcheck = it_IT
+%\documentclass[a4paper, oneside, 12pt]{book}
+% By default, the book class has the twoside option enabled for a two-sided layout. I prefer the one-sided layout for the web and official version (sent to the university), and the two-sided layout for the personal printed version.
+\documentclass[a4paper, 12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{csquotes} % Required by babel for better quotes.
+\usepackage{graphicx} % Required for inserting images.
+\usepackage[style=alphabetic, sorting=ynt, minnames=3]{biblatex} % Required for the bibliography.
+\usepackage{setspace} % Required for the title page.
+\usepackage[paper=a4paper]{geometry} % Required for the title page.
+\usepackage{subcaption} % To have subfigures and subcaptions in one figure.
+\usepackage{hyperref} % For links, urls ettc.
+\usepackage{amsfonts} % Required for math formulas.
+\usepackage{mathtools} % Idem as above.
+\usepackage{algorithm} % To add caption to algorithms.
+\usepackage{algpseudocode} % To add algorithms as pseudocode.
+\usepackage[italian, noabbrev]{cleveref} % For automatic references label.
+\usepackage{numprint} % To print numbers with separators and exponent.
+\usepackage{shorttoc} % To show a reduced table of contents.
+
+% Add bibliography sources.
+\addbibresource{references.bib}
+
+% Get a blank page when \cleardoublepage inserts a new blank page, otherwise the default behavior is to show header and footer.
+%
+% See LaTeX2e manual, section 10.1.
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{\clearpage{\pagestyle{empty}\origdoublepage}}
+% Allow \chapter to run the modified command.
+\let\cleardoublepage\clearemptydoublepage
+
+\newcommand{\thetitle}{Apprendimento per rinforzo multi-agente per la distribuzione del carico in servizi di edge computing FaaS}
+\newcommand{\theauthor}{Emanuele Petriglia}
+\newcommand{\theversion}{24 Ottobre 2024}
+
+\title{\thetitle}
+\author{\theauthor}
+\date{Ottobre 2024}
+
+% Hyperref configuration.
+\hypersetup{
+  pdftitle     = {\thetitle},
+  pdfauthor    = {\theauthor},
+  colorlinks   = true,
+  urlcolor     = black,
+  linkcolor    = black,
+  citecolor    = black
+}
+
+% Default in book class is 2, change to 3 to show subsubsections numbers.
+\setcounter{secnumdepth}{3}
+
+% The algorithm package has a problem: doesn't support translation in other languages. See section 4.4 of the algorithm documentation.
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\listalgorithmname}{Elenco degli algoritmi}
+
+% REVISION COMMENTS MACRO
+% \usepackage{soul}
+% \newif\ifshowcomments
+% \showcommentstrue
+% % \showcommentsfalse
+
+% \ifshowcomments
+%     \newcommand{\Comment}[1]{{\color{orange}\textbf{[#1]}}}
+%     \newcommand{\Newtxt}[1]{{\color{orange}#1}}
+%     \newcommand{\Cancel}[1]{{\setul{}{.2ex}\setstcolor{orange}\st{#1}\resetul}}
+% \else
+%     \newcommand{\Comment}[1]{}
+%     \newcommand{\Newtxt}[1]{{#1}}
+%     \newcommand{\Cancel}[1]{}
+% \fi
+%
+
+\begin{document}
+
+\frontmatter
+
+\input{frontmatter}
+
+\mainmatter
+
+\input{chapters/1_introduzione}
+
+\input{chapters/2_contesto}
+
+\input{chapters/3_stato_arte}
+
+\input{chapters/4_modellazione}
+
+\input{chapters/5_esperimenti}
+
+\input{chapters/6_conclusioni}
+
+\backmatter
+
+\input{backmatter}
+
+\end{document}

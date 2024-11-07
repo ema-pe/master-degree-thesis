@@ -1,0 +1,75 @@
+% Custom beamer template, based on TU Delft beamer template.
+% Author: Emanuele Petriglia, based on the work done by Erwin Walraven and Maarten Abbink.
+
+\mode<presentation>
+
+% Title page.
+\defbeamertemplate*{title page}{}{
+    \begin{center}
+        {\color{unimib-discoGreen}\large\textsc{Università degli Studi di Milano - Bicocca}}
+        \vfill
+        \includegraphics[width=8em]{assets/slides/bicocca-disco-logo.pdf}
+        \vfill
+        {\color{unimib-discoGreen}\Large\inserttitle}
+        \vfill
+        {\small\insertauthor}\\
+        {\small 888435}
+        \vfill
+        \begin{minipage}{.5\textwidth}
+            \scriptsize
+            Relatore: Prof. Michele Ciavotta \\
+            Correlatrice: Dott.ssa Federica Filippini
+        \end{minipage}
+        \hfill
+        \begin{minipage}{.4\textwidth}
+            \raggedleft
+            \scriptsize
+            \insertdate
+        \end{minipage}
+    \end{center}
+}
+
+% Section page.
+% \AtBeginSection[]{
+%     % Braces are necessary to keep background color only for this frame.
+%     {
+%         \setbeamercolor{background canvas}{bg=unimib-discoGreen}
+%         \usebeamerfont{title}
+
+%         \begin{frame}[plain]
+%         % The two vfills are needed because the default alignment does not correctly vertical align the title.
+%         \vfill
+%         \centering
+%         \color{white}\insertsectionnumber. \insertsection
+%         \vfill
+%         \end{frame}
+%     }
+% }
+
+% Subsection page.
+% \AtBeginSubsection[]{
+%     % Braces are necessary to keep background color only for this frame.
+%     {
+%         \setbeamercolor{background canvas}{bg=unimib-discoGreen}
+%         \usebeamerfont{title}
+
+%         \begin{frame}[plain]
+%         % The two vfills are needed because the default alignment does not correctly vertical align the title.
+%         \vfill
+%         \centering
+%         \color{white}\insertsectionnumber. \insertsection \par
+%         \bigskip
+%         \color{white}\insertsectionnumber.\insertsubsectionnumber. \insertsubsection
+%         \vfill
+%         \end{frame}
+%     }
+% }
+
+\setbeamertemplate{blocks}[rounded][]
+\setbeamertemplate{items}[circle]
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\mode
+<all>

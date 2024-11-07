@@ -1,0 +1,122 @@
+% Title page
+% This is a slighly modified version that can be found here: https://github.com/domenicomonaco/latex-frontespizio-tesi-teoria-tecnologia-della-comunicazione-bicocca
+\begin{titlepage}
+    \centering
+
+    \newgeometry{margin=1in} % Valid only for this page.
+    
+    \begin{minipage}[t]{1\textwidth}
+        \centering
+    {
+            \setstretch{1.12}
+            {\LARGE\textsc{Università degli Studi di Milano - Bicocca}} \\
+            \Large\textbf{Scuola di Scienze} \\
+            \large\textbf{Dipartimento di Informatica, Sistemistica e Comunicazione} \\
+            \textbf{Corso di Laurea Magistrale in Informatica} \\
+            \par
+    }
+    \end{minipage}
+    
+    \centering
+    \begin{minipage}[t]{\textwidth}
+        \vspace{10mm}
+    \end{minipage}
+     
+    \centering
+    \begin{minipage}[t]{1\textwidth}
+    \centering
+    \includegraphics[scale=0.7]{assets/logo-bicocca.pdf}
+    \end{minipage}
+    
+    \begin{minipage}[t]{\textwidth}
+    \end{minipage}
+    
+    \vspace{10mm}
+    
+    \begin{center}
+        \Huge{
+            \textbf{\thetitle}
+            }
+    \end{center}
+    
+    \vspace{30mm}
+    \begin{flushleft}
+        \noindent
+        {\large \textbf{Relatore:} Prof. Michele Ciavotta } \\
+    
+        \noindent
+        {\large \textbf{Correlatrice:} Dott.ssa Federica Filippini}
+    \end{flushleft}
+    
+    \vspace{10mm}
+    \begin{flushright}
+        {\large \textbf{Tesi di Laurea Magistrale di:}} \\
+        \large{\theauthor} \\
+        \large{Matricola 888435} 
+    \end{flushright}
+    
+    \vspace{5mm}
+    \begin{center}
+        {\large{\bf Anno Accademico 2023-2024}}
+    \end{center}
+
+    \restoregeometry % Reset original paper geometry.
+\end{titlepage}
+
+% Back of the title page.
+{
+    \thispagestyle{empty}
+    \setlength{\parindent}{0pt}
+    
+    % The empty box required to force \vfill to push the content to the bottom of the page.
+    \mbox{} 
+    \vfill
+    
+    \hrulefill % A black horizontal rule.
+    
+    \vspace{2mm} \textbf{\thetitle}
+    
+    \vspace{2mm} Tesi di laurea. Università degli Studi di ``Milano -- Bicocca''.
+    
+    \vspace{8mm} \small © 2024 Emanuele Petriglia. Tutti i diritti riservati. Rilasciata con licenza Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale (CC BY-SA 4.0).
+    
+    \vspace{4mm} Questa tesi è stata composta con \LaTeX.
+    
+    \vspace{4mm} Versione: \theversion
+    
+    \vspace{2mm} Email dell'autore: \url{e.petriglia@campus.unimib.it}
+    
+    \cleardoublepage
+}
+
+% Acknowledgements, printed version only (not submitted to the university).
+\begingroup % This will reset the length to original value.
+\addtolength\leftmargini{1cm} % Default left margin is too short.
+\begin{quotation}
+    \it
+    Desidero dedicare la mia profonda gratitudine al mio relatore, prof. Michele Ciavotta, e alla correlatrice, dott.ssa Federica Filippini, per la loro infinita pazienza, professionalità e disponibilità. Il loro aiuto è stato fondamentale per la mia crescita personale e professionale.
+
+    \paragraph{} Un sentito ringraziamento va alla mia famiglia, a Laura e a tutti i miei amici, il cui sostegno è stato essenziale. Senza di loro, questo traguardo sarebbe stato impossibile.
+
+    \paragraph{} Nel corso di questi tre anni, molte persone hanno influenzato positivamente la mia vita, contribuendo a plasmare la persona che sono diventato. Voglio esprimere un grazie di cuore a tutti loro.
+\end{quotation}
+\endgroup
+
+\cleardoublepage
+
+% Abstract page.
+\section*{Sommario}
+
+L'enorme diffusione Internet of Things (IoT) ha portato alla nascita di servizi che richiedono tempi di analisi ridotti e una grande quantità di dati. Poiché il cloud computing non è sempre in grado di rispettare gli stringenti requisiti posti dai servizi IoT, è nato il paradigma dell'edge computing, che ha consentito di avviare un progressivo avvicinamento della computazione verso gli utenti. Inoltre, il continuo sviluppo nell'ambito del cloud computing ha portato la nascita del modello Function as a Service (FaaS), in cui sviluppatori possono creare, eseguire e gestire i pacchetti applicativi come funzioni senza dover mantenere un'infrastruttura propria. Decentralized FaaS (DFaaS) unisce i due modelli del FaaS e dell'edge computing, rappresentando un'architettura federata e decentralizzata per il bilanciamento automatico del carico in arrivo ai nodi edge della rete.
+
+A partire da un precedente lavoro a singolo agente, in questa tesi viene presentata una modellazione preliminare della gestione del carico in DFaaS in un contesto di Apprendimento per Rinforzo Multi-Agente (Multi-Agent Reinforcement Learning, MARL). Sono stati sviluppati tre modelli di ambienti con complessità crescente, che si distinguono per il livello di collaborazione che gli agenti possono raggiungere, attraverso l'inoltro delle richieste ricevute. Gli ambienti sono stati testati addestrando due agenti utilizzando un algoritmo di Deep RL, Proximal Policy Optimization, in due configurazioni multi-agente e su tre scenari definiti di carichi in ingresso.
+
+Dai risultati di una preliminare analisi sperimentale, si è osservato che l'approccio MARL può affrontare il problema di distribuzione del carico in un ambiente DFaaS. In particolare, gli agenti addestrati su uno scenario di carico reale riescono a processare oltre l'80\% delle richieste in ingresso, dimostrando che la possibilità di inoltrare parte delle richieste ai vicini ne migliora la gestione complessiva da parte del sistema.
+
+\cleardoublepage
+
+\shorttoc{Indice ridotto}{1}
+
+\cleardoublepage
+
+\tableofcontents

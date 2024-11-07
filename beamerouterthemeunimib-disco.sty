@@ -1,0 +1,56 @@
+% Custom beamer template, based on TU Delft beamer template.
+% Author: Emanuele Petriglia, based on the work done by  Erwin Walraven and Maarten Abbink.chnology
+
+\mode<presentation>
+
+\setbeamercolor{author in head/foot}{parent=palette tertiary}
+\setbeamercolor{title in head/foot}{parent=palette secondary}
+\setbeamercolor{date in head/foot}{parent=palette primary}
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{subsection in head/foot}{parent=palette primary}
+\setbeamercolor{navigtion symbols in head/foot}{parent=palette primary}
+\setbeamercolor{logo in head/foot}{parent=palette quaternary}
+
+\setbeamercolor*{navigation symbols}{parent=palette primary}
+\setbeamercolor*{navigation symbols dimmed}{parent=palette primary,fg=parent.fg!20!parent.bg}
+
+\setbeamersize{text margin left=.5cm}
+\setbeamersize{text margin right=.5cm}
+
+% Footer bar. A bit messy, should be refactored.
+\defbeamertemplate*{footline}{}{
+\leavevmode
+
+\begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=2.5ex,center]{date in head/foot}
+
+\begin{columns}[t]
+
+\column{.65\textwidth}
+\enspace % Additional space at the left.
+\raggedright \begin{minipage}[c]{2.5em}
+\includegraphics[width=2em]{assets/slides/bicocca-logo-footer.pdf}
+\vspace{0.05em}
+\end{minipage}%
+\ifx\@chapapp\appendixname
+    Cia
+\else
+%
+\ifx\insertsubsection\@empty%
+    \insertsectionnumber. \insertsection
+\else % Add subsection number and title if provided.
+    \insertsectionnumber.\insertsubsectionnumber\enspace \insertsection: \insertsubsection
+\fi
+\fi
+
+\column{0.1\textwidth}
+
+\column{0.1\textwidth}
+\raggedleft \insertframenumber{} / \inserttotalframenumber
+\enspace % Additional space at the right.
+
+\end{columns}
+\end{beamercolorbox}
+}
+
+\mode
+<all>

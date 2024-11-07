@@ -1,0 +1,50 @@
+\chapter{Introduzione}
+
+Nell'odierno contesto tecnologico il cloud computing si è affermato come pilastro fondamentale per la gestione dei servizi digitali su larga scala, in una rete Internet sempre più densa e complessa. Non è soltanto una evoluzione tecnologica, rappresenta un vero e proprio capovolgimento delle modalità con cui le risorse computazionali vengono distribuite, allocate e consumate. La crescita costante dei servizi di cloud computing non è casuale \cite{Ghatke2023}, ma piuttosto risponde alla crescente domanda di un'infrastruttura flessibile, scalabile, accessibile e che consenta una misurazione precisa dei costi, non sempre facilmente realizzabile con un'infrastruttura classica on-premise.
+
+La produzione incontrollabile dei dati in termini di volume e velocità ha fatto emergere alcune limitazioni del cloud computing, soprattutto in termini di qualità del servizio. Un esempio sono i ritardi determinati dalla distanza tra i dispositivi utente e i server centralizzati, importanti in contesti critici. Per far fronte a questa limitazione sono stati introdotti paradigmi che hanno spostato la computazione dal cloud verso gli utenti, al margine della rete nell'edge computing o in livelli intermedi della rete nel fog computing \cite{Shash2021}.
+
+Il continuo sviluppo nell'ambito del cloud computing ha portato alla nascita del serverless computing e in particolare dell'approccio Function as a Service (FaaS). In FaaS, gli sviluppatori possono creare, eseguire e gestire i pacchetti applicativi come funzioni senza dover mantenere un'infrastruttura propria. FaaS rappresenta un modello di servizio che può essere applicato con successo all'edge computing, ampliando il paradigma FaaS tradizionale in modo da bilanciare il carico tra vari nodi presenti all'edge. Basato su questa idea, Decentralized FaaS (DFaaS) rappresenta un'architettura federata e decentralizzata per il bilanciamento automatico del carico in arrivo ai nodi edge della rete \cite{Ciavotta2021}.
+
+Nonostante siano presenti in letteratura diversi lavori che affrontano il problema di distribuzione del carico in ambienti edge o edge-cloud \cite{Hsieh2023}, l'Apprendimento per Rinforzo (Reinforcement Learning, RL) ha recentemente acquisito popolarità in questo campo \cite{Hortelano2023}. In scenari dinamici e complessi, difficili da modellare analiticamente, il RL è in grado di imparare dall'interazione con l'ambiente e adattare automaticamente le azioni nel tempo, decidendo come distribuire il carico in ingresso.
+
+A partire da un precedente articolo in un contesto a singolo agente \cite{Petriglia2024}, in questa tesi viene presentata una modellazione preliminare della gestione del carico in DFaaS in un contesto di Apprendimento per Rinforzo Multi-Agente (Multi-Agent Reinforcement Learning, MARL). Abbiamo sviluppato tre modelli di ambienti con complessità crescente, che sono stati messi alla prova addestrando due agenti utilizzando un algoritmo di Deep RL, Proximal Policy Optimization (PPO) \cite{Schulman2017}, in due configurazioni multi-agente. L'obiettivo è investigare se il MARL può affrontare il problema di distribuzione del carico in un ambiente DFaaS.
+
+Il codice relativo all'implementazione degli ambienti e alla sperimentazione è disponibile in una repository pubblica su GitHub\footnote{\url{https://github.com/unimib-datAI/marl-dfaas}}.
+
+\section{Il caso di studio}
+
+L'architettura di Decentralized FaaS (DFaaS), approfondita nella \Cref{sec:2_dfaas}, è costituita da una federazione peer-to-peer di nodi edge FaaS autonomi distribuiti alla periferia della rete. Ogni nodo riceve le richieste (tipicamente HTTP) generate dal client connesso al punto di accesso più vicino; tali richieste possono essere processate localmente oppure autonomamente inoltrate dal nodo ad altri nodi quando necessario, ad esempio in caso di sovraccarico.
+
+I componenti fondamentali di un nodo DFaaS sono l'agente, il proxy e la piattaforma FaaS. L'agente mantiene la connessione peer-to-peer e si occupa di prevedere e gestire le richieste per il nodo, configurando come conseguenza il proxy che attua la decisione di inoltro o di processamento locale di ogni richiesta in ingresso.
+
+Poiché spesso nei nodi edge le risorse computazionali sono limitate, sorge come fattore fondamentale la collaborazione tra i nodi al fine di garantire un determinato livello di qualità del servizio, evitando ritardi eccessivi e il sovraccarico di un nodo. Nasce da questo la necessità di studiare metodi di distribuzione ottimali in ambienti simili. Tra i possibili approcci, esposti nella \Cref{sec:3_stato_arte}, l'approccio RL e in particolare MARL, è particolarmente adatto a questo problema. Vista la complessità dello scenario considerato in DFaaS, in questa tesi è stato realizzato un modello più semplice che cattura la principale capacità degli agenti DFaaS: come gestire il carico di richieste in arrivo decidendo la porzione di richieste da processare localmente, inoltrare ad altri nodi e rifiutare. Il modello è approfondito nel \Cref{sec:4_modellazione}.
+
+\section{Obiettivi di ricerca}
+\label{sec:1_obiettivi_ricerca}
+
+Partendo da un'acquisizione iniziale di una solida base teorica sia sul cloud computing e i paradigmi successivi, in particolare DFaaS, sia sull'Apprendimento per Rinforzo, in particolare il Deep RL e l'approccio Multi-Agente, gli obiettivi di ricerca sono i seguenti:
+
+\begin{itemize}
+    \item RQ1: Come modellare un ambiente multi-agente preliminare per la gestione del carico in un sistema DFaaS?
+
+    \item RQ2: L'approccio MARL è in grado di affrontare il problema della distribuzione del carico al fine di processare più richieste possibili?
+\end{itemize}
+
+Per entrambi gli obiettivi viene posta l'attenzione non solo sulla modellazione teorica, ma anche sull'implementazione e la sperimentazione degli algoritmi adottati per affrontare il problema.
+
+\section{Struttura della tesi}
+
+Il restante lavoro di questa tesi è strutturato nei seguenti capitoli:
+
+\begin{itemize}
+    \item \Cref{sec:2_descrizione_contesto} -- \nameref{sec:2_descrizione_contesto}: introduce informazioni di base necessarie per la comprensione dei capitoli successivi. In particolare, viene presentata una panoramica dal cloud computing fino a Decentralized FaaS e i concetti principali dell'Apprendimento per Rinforzo, con un approfondimento dell'algoritmo usato negli esperimenti.
+
+    \item \Cref{sec:3_stato_arte} -- \nameref{sec:3_stato_arte}: presenta lo stato dell'arte relativo ad approcci basati su euristiche e RL per la distribuzione del carico su ambienti edge ed edge-FaaS.
+
+    \item \Cref{sec:4_modellazione} -- \nameref{sec:4_modellazione}: contiene la modellazione dell'ambiente semplificato DFaaS nell'ambito dell'Apprendimento per Rinforzo.
+
+    \item \Cref{sec:5_esperimenti} -- \nameref{sec:5_esperimenti}: descrive le modalità e le configurazioni con cui sono stati svolti gli esperimenti per valutare gli agenti negli ambienti definiti con l'algoritmo scelto, e analizza i risultati.
+
+    \item \Cref{sec:6_conclusioni} -- \nameref{sec:6_conclusioni}: riporta le considerazioni finali e i possibili sviluppi futuri.
+\end{itemize}

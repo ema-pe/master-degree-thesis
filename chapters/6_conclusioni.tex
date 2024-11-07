@@ -1,0 +1,22 @@
+\chapter{Conclusioni}
+\label{sec:6_conclusioni}
+
+Quest'ultimo capitolo dell'elaborato contiene un sommario del lavoro svolto, evidenziando i risultati raggiunti, le limitazioni e le criticità affrontate, oltre che gli spunti per sviluppi futuri.
+
+Nella \Cref{sec:1_obiettivi_ricerca} si sono descritti gli obiettivi di ricerca legati allo sviluppo di questa tesi: modellare un ambiente multi-agente per la gestione del carico in un sistema DFaaS e verificare che l'approccio multi-agente è in grado di affrontare questo problema. Partendo dalle basi teoriche riguardo le tematiche trattate nella tesi, presentate nel \Cref{sec:2_descrizione_contesto}, è stata svolta un'analisi dello stato nell'arte, nel \Cref{sec:3_stato_arte}, riscontrando l'assenza di lavori sulla incentrati sulla distribuzione del carico in ambienti edge-FaaS. Si è quindi iniziato a modellare un problema di RL multi-agente preliminare, nel \Cref{sec:4_modellazione}. A seguire sono stati creati ed eseguiti degli esperimenti in \Cref{sec:5_esperimenti}.
+
+\paragraph{Risultati preliminari.} Un fattore importante nell'analisi dei risultati è la capacità degli agenti ad adattarsi in situazioni eterogenee, rappresentate dai diversi scenari di carico che abbiamo considerato. Sotto questa ottica, la migliore soluzione è stata ottenuta con gli agenti addestrati su uno scenario di carico reale, che riescono a processare oltre l'80\% delle richieste in ingresso sui tre scenari definiti, dimostrando che la possibilità di inoltrare parte delle richieste ai vicini ne migliora la gestione complessiva da parte del sistema. Nonostante non ci siano grosse differenza tra l'approccio MARL centralizzato e decentralizzato per la fase di addestramento, condividere la rete Critic aiuta gli agenti a scegliere azioni migliori rispetto l'assenza di condivisione.
+
+\paragraph{Limitazioni e sviluppi futuri.} Sebbene il modello preliminare proposto rappresenti una notevole semplificazione del problema trattato, le difficoltà riscontrate e le osservazioni nate durante lo svolgimento della tesi hanno reso possibile individuare alcuni punti importanti per orientare futuri progetti:
+
+\begin{itemize}
+    \item Modellazione di un ambiente più complesso, in modo da avvicinarsi a una rappresentazione più vicina al sistema reale DFaaS. In particolare  si può lavorare sulla gestione delle richieste in coda, evitando che gli slot nella coda tornino tutti disponibili al passo successivo.
+
+    \item Miglioramento della funzione di ricompensa in modo da incentivare la cooperazione tra agenti.
+
+    \item Esplorazione più approfondita dell'approccio MARL al problema affrontato, sia nel determinare l'obiettivo degli agenti (un equilibrio comune o una massimizzazione locale) sia negli approcci di addestramento ed esecuzione. In particolare tra i problemi da affrontare ci sono: la non stazionarietà dell'ambiente, come assegnare la ricompensa e come scalare in ambienti con molti agenti.
+    
+    \item Tuning degli iperparametri: le scelte degli iperparametri in RL può influire molto sulle prestazioni degli agenti. In questa tesi sono stati utilizzati i valori predefiniti in RLlib, poiché gli obiettivi del lavoro erano concentrati sulla realizzabilità del modello e una prima sperimentazione. Tali iperparametri, per quanto scelti in modo da risultare funzionali in contesti generali, possono essere ottimizzati per lo specifico problema affrontato, in modo da ottenere prestazioni migliori.
+
+    \item Approfondimento dell'approccio Deep Learning, al fine di costruire modelli di reti neurali più adatti al problema. Un limite attuale è l'uso delle reti neurali completamente connesse, non molto adatte in problemi in cui la sequenza degli eventi è rilevante, poiché le richieste in ingresso vicine sono correlate temporalmente. Reti con memoria, come le reti neurali ricorrenti (recurrent neural network, RNN), possono risultare più indicate per il problema affrontato.
+\end{itemize}
