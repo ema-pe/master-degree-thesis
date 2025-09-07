@@ -12,4 +12,6 @@ All of these files can be [**downloaded directly**](https://gitlab.com/ema-pe/ma
 
 Please note that thesis and slides are written in italian.
 
+The git repository is available online on both [GitLab](https://gitlab.com/ema-pe/master-degree-thesis) and [GitHub](https://github.com/ema-pe/master-degree-thesis). However, GitHub is a **read-only** mirror of GitLab.
+
 Licensed under the Creative Commons Attribution Share Alike 4.0 International. See [**LICENSE**](LICENSE) for more information.
